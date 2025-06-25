@@ -13,11 +13,23 @@ const onGenarateSubmit = (e) => {
         alert("please enter a valid URL!");
     }
 
-    
+    else{
+        showSpinner();
+        setTimeout(() => {
+            hideSpinner()
+        }, 1000);
+    }
 
 };  
 
 
+const showSpinner = function() {
+    document.getElementById("spinner").style.display = "block";
+};
 
+const hideSpinner = function() {
+    document.getElementById("spinner").style.display = "none";
+};
 
+hideSpinner();
 form.addEventListener("submit", onGenarateSubmit)
