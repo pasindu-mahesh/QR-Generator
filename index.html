@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
@@ -9,6 +10,51 @@
 
 </head>
 <body>
+    <!-- Header Section -->
+     <header>
+        <h2>QR Code Genarator</h2>
+     </header>
+    <!-- Main Section -->
+     <main>
+        <div class="image">
+        <image src="./images/qr-image.gif" alt="image" />
+        </div>
+
+        <div class="content">
+        <h2>QR Code Genarator</h2>
+        <p>
+            QR Code allow smartponene users to scan and access information quickly.
+        </p>
+        <p>
+            Enter the URL or text you want to encode in the QR code below.
+        </p>
+
+        <form id="genarate-form">
+           <input type="url"
+           id="url"
+           placeholder="Enter URL"
+           class="inputurl" />
+
+           <select name="size"
+           id="size"
+           class="selected">
+        <option value="100">100 x 100</option>
+        <option value="200">200 x 200</option>
+        <option value="300">300 x 300</option>
+        <option value="400">400 x 400</option>
+        <option value="500">500 x 500</option>
+        <option value="600">600 x 600</option>
+        <option value="700">700 x 700</option>
+        </select>
+
+        <button class="submit" type="submit">Genarate QR Code</button>
+        </form>
+        </div>
+
+     </main>
+
+     
+
     
 </body>
 </html>
