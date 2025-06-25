@@ -11,22 +11,20 @@ const onGenarateSubmit = (e) => {
 
     if(url === ""){
         alert("please enter a valid URL!");
-    }
-
-    else{
+    } else{
         showSpinner();
-        //generateQrCode(url, size);
         setTimeout(() => {
+            generateQrCode(url, size);
             hideSpinner()
         }, 1000);
     }
 
 };  
 
-const generateQrCode = function(url, size){
-    const qrcode = new QRCode("qrcode",{
+const generateQrCode = function(url, size) {
+    const qrcode = new QRCode("qrcode", {
         text:url,
-        width: size,
+        width:size,
         height: size,
     });
 };
