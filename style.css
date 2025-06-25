@@ -55,6 +55,17 @@ img{
     border-radius: 0.2rem;
 }
 
+.submit{
+    padding: 10px;
+    border-radius: 0.2rem;
+    font-size: 1rem;
+    border: none;
+    background-color: #3fbff1;
+    color: #fff;
+    font-weight: 700;
+    
+    
+}
 /*responsive design*/
 @media screen and (max-width: 600px){
     main{
