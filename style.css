@@ -88,6 +88,14 @@ img{
         transform: rotate(360deg);
     }
 }
+
+#qrcode{
+    margin: auto;
+    max-width: 120px;
+    width: max-content;
+}
+
+
 /*responsive design*/
 @media screen and (max-width: 600px){
     main{
