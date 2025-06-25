@@ -15,12 +15,21 @@ const onGenarateSubmit = (e) => {
 
     else{
         showSpinner();
+        //generateQrCode(url, size);
         setTimeout(() => {
             hideSpinner()
         }, 1000);
     }
 
 };  
+
+const generateQrCode = function(url, size){
+    const qrcode = new QRCode("qrcode",{
+        text:url,
+        width: size,
+        height: size,
+    });
+};
 
 
 const showSpinner = function() {
