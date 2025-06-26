@@ -20,9 +20,16 @@ const onGenerateSubmit = (e) => {
     generateQrCode(url, size);
 
     setTimeout(() => {
-      const qrImage = qr.querySelector("img");
+      const qrImage = qr.querySelector("img") || qr.querySelector("canvas");
       if (qrImage) {
-        const saveUrl = qrImage.src;
+        // Explicitly set preview size
+        qrImage.style.width = `${size}px`;
+        qrImage.style.height = `${size}px`;
+
+        const saveUrl = qrImage.toDataURL
+          ? qrImage.toDataURL("image/png")
+          : qrImage.src;
+
         createSaveBtn(saveUrl);
       }
     }, 100);

@@ -93,10 +93,12 @@ img {
   100% { transform: rotate(360deg); }
 }
 
-#qrcode {
+#qrcode img,
+#qrcode canvas {
+  display: block;
   margin: auto;
-  padding: 10px;
 }
+
 
 /* Responsive */
 @media screen and (max-width: 600px) {
