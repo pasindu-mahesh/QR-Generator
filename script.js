@@ -25,7 +25,7 @@ const generateQrCode = function(url, size) {
     const qrcode = new QRCode("qrcode", {
         text:url,
         width:size,
-        height: size,
+        height:size,
     });
 };
 
