@@ -14,9 +14,15 @@ const onGenarateSubmit = (e) => {
         alert("please enter a valid URL!");
     } else{
         showSpinner();
+
         setTimeout(() => {
-            generateQrCode(url, size);
             hideSpinner()
+            generateQrCode(url, size);
+
+            setTimeout(()=> {
+                const saveurl =qr.querySelector("img").src;
+                createSaveBtn(saveurl);
+            }, 50);
         }, 1000);
     }
 
@@ -43,5 +49,16 @@ const hideSpinner = function() {
     document.getElementById("spinner").style.display = "none";
 };
 
+const createSaveBtn = function(saveUrl) {
+
+const link = document.createElement("a");
+link.id = "savelink";
+link.classList = "download-btn";
+link.href = saveUrl;
+link.download = "QRcode";
+link.innerHTML = "Save image";
+document.getElementById("generated").appendChild(link);
+};
+ 
 hideSpinner();
 form.addEventListener("submit", onGenarateSubmit)
