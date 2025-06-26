@@ -1,64 +1,67 @@
-const form = document.getElementById("genarate-form");
+const form = document.getElementById("generate-form");
 const qr = document.getElementById("qrcode");
 
+const onGenerateSubmit = (e) => {
+  e.preventDefault();
+  cleanUI();
 
-const onGenarateSubmit = (e) => {
-    e.preventDefault();
-    cleanUI();
-    const url = document.getElementById("url").value;
-    const size = document.getElementById("size").value;
+  const url = document.getElementById("url").value.trim();
+  const size = parseInt(document.getElementById("size").value);
 
-    console.log(url, size);
+  if (url === "") {
+    alert("Please enter a valid URL!");
+    return;
+  }
 
-    if(url === ""){
-        alert("please enter a valid URL!");
-    } else{
-        showSpinner();
+  showSpinner();
 
-        setTimeout(() => {
-            hideSpinner()
-            generateQrCode(url, size);
+  setTimeout(() => {
+    hideSpinner();
+    generateQrCode(url, size);
 
-            setTimeout(()=> {
-                const saveurl =qr.querySelector("img").src;
-                createSaveBtn(saveurl);
-            }, 50);
-        }, 1000);
-    }
-
-};  
-
-const generateQrCode = function(url, size) {
-    const qrcode = new QRCode("qrcode", {
-        text:url,
-        width:size,
-        height:size,
-    });
+    setTimeout(() => {
+      const qrImage = qr.querySelector("img");
+      if (qrImage) {
+        const saveUrl = qrImage.src;
+        createSaveBtn(saveUrl);
+      }
+    }, 100);
+  }, 1000);
 };
 
-const cleanUI = function(){
-    qr.innerHTML = "";
-}
-
-
-const showSpinner = function() {
-    document.getElementById("spinner").style.display = "block";
+const generateQrCode = (url, size) => {
+  new QRCode(qr, {
+    text: url,
+    width: size,
+    height: size,
+  });
 };
 
-const hideSpinner = function() {
-    document.getElementById("spinner").style.display = "none";
+const cleanUI = () => {
+  qr.innerHTML = "";
+  const existingLink = document.getElementById("savelink");
+  if (existingLink) {
+    existingLink.remove();
+  }
 };
 
-const createSaveBtn = function(saveUrl) {
-
-const link = document.createElement("a");
-link.id = "savelink";
-link.classList = "download-btn";
-link.href = saveUrl;
-link.download = "QRcode";
-link.innerHTML = "Save image";
-document.getElementById("generated").appendChild(link);
+const showSpinner = () => {
+  document.getElementById("spinner").style.display = "block";
 };
- 
+
+const hideSpinner = () => {
+  document.getElementById("spinner").style.display = "none";
+};
+
+const createSaveBtn = (saveUrl) => {
+  const link = document.createElement("a");
+  link.id = "savelink";
+  link.className = "download-btn";
+  link.href = saveUrl;
+  link.download = "qrcode";
+  link.innerText = "Save Image";
+  document.getElementById("generated").appendChild(link);
+};
+
 hideSpinner();
-form.addEventListener("submit", onGenarateSubmit)
+form.addEventListener("submit", onGenerateSubmit);

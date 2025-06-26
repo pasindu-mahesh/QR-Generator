@@ -1,122 +1,111 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family:"Montserrat", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
-header{
-    max-width: 1200px;
-    background-color: #3fbff1;
-    margin-inline: auto;
-    padding: 5px 20px;
-    color : #fff;
-    font-weight: 600;
+header {
+  max-width: 1200px;
+  background-color: #3fbff1;
+  margin-inline: auto;
+  padding: 5px 20px;
+  color: #fff;
+  font-weight: 600;
 }
 
-main{
-    max-width: 1200px;
-    margin: 20px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row-reverse;
-    text-align: center;
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+  text-align: center;
 }
-img{
-    width: 100%
+
+img {
+  width: 100%;
 }
-.content{
-    width: 50%;
-    display: flex;
+
+.content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem 3rem;
+  text-align: left;
+  color: #505252;
+}
+
+#generate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.inputurl,
+.selected {
+  border: 2px solid #686969;
+  padding: 10px;
+  border-radius: 0.2rem;
+}
+
+.submit {
+  padding: 10px;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #3fbff1;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.download-btn {
+  display: block;
+  width: fit-content;
+  background-color: #3fbff1;
+  margin: 20px auto;
+  padding: 10px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Spinner */
+.loader {
+  margin: 10px auto;
+  border: 1rem solid #dadada;
+  border-radius: 50%;
+  border-top: 1rem solid #3fbff1;
+  width: 3rem;
+  height: 3rem;
+  animation: spin 2s linear infinite;
+  display: none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#qrcode {
+  margin: auto;
+  padding: 10px;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  main {
     flex-direction: column;
-    justify-content: center;
-    margin: 2rem 3rem;
-    text-align: left;
-    color: #505252;
-}
+  }
 
-#genarate-form{
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.inputurl{
-    border: 2px solid #686969;
-    padding: 10px;
-    border-radius: 0.2rem;
-}
-
-.selected{
-    border: 2px solid #686969;
-    padding: 10px;
-    border-radius: 0.2rem;
-}
-
-.submit{
-    padding: 10px;
-    border-radius: 0.2rem;
-    font-size: 1rem;
-    border: none;
-    background-color: #3fbff1;
-    color: #fff;
-    font-weight: 700;  
-    cursor: pointer; 
-}
-
-.download-btn{
-    display: block;
-    width: 20%;
-    text-align: center;
-    background-color: #3fbff1;
-    margin: 20% auto;
-    padding: 10px 30px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-
-}
-
-/*spinner*/
-.loader{
-    margin: 10px auto;
-    border: 1rem solid #dadada; 
-    border-radius: 50%;
-    border-top: 1rem solid #3fbff1; 
-    width : 3rem;
-    height: 3rem;
-    
-    /* safari */
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin{
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
-}
-
-#qrcode{
-    margin: auto;
-    max-width: 120px;
-    width: max-content;
-}
-
-
-/*responsive design*/
-@media screen and (max-width: 600px){
-    main{
-        flex-direction: column;
-    }
-    .content{
-        width: 100%;
-        margin: 2rem 0;
-    }
+  .content {
+    width: 100%;
+    margin: 2rem 0;
+  }
 }
