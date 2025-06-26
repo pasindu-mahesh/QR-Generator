@@ -66,7 +66,7 @@ const createSaveBtn = (saveUrl) => {
   link.className = "download-btn";
   link.href = saveUrl;
   link.download = "qrcode";
-  link.innerText = "Save Image";
+  link.innerText = "Download QR";
   document.getElementById("generated").appendChild(link);
 };
 
